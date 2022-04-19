@@ -27,7 +27,7 @@ stage('Docker hub login and publish'){
 	}
 }
  stage('deploy'){
-                  agent { label 'kuber' }
+                  agent { label 'kubes' }
                   steps{
                   sh " kubectl apply -f /root/new.yml"
                   sh " kubectl get pod "
@@ -40,5 +40,4 @@ stage('Docker hub login and publish'){
                   }
                   }
                 
-                  sh " kubectl apply -f /root/service.yml "
-                  sh " kubectl get svc "
+                  
