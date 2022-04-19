@@ -18,14 +18,14 @@ pipeline{
        stage('publish'){
                   steps{
                         sh "docker login -u soumya2807 -p admin@123"
-                        sh "docker push sandy1791994/dockarimage:1.0"
+                        sh "docker push soumya2807/dockarimage:1.0"
                   }
             }
             stage('deploy'){
                   agent { label 'slave2' }
                   steps{
                         sh "docker login -u soumya2807 -p admin@123"
-                        sh "docker pull sandy1791994/docwarimage:1.0"
+                        sh "docker pull soumya2807/docwarimage:1.0"
                         sh "docker rm -f trail1"
                         sh "docker run -d -p 8085:8080 --name trail1 soumya2807/dockarimage:1.0"
                   }
