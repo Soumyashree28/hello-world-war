@@ -29,7 +29,7 @@ stage('Docker hub login and publish'){
  stage('deploy'){
                   agent { label 'kubes' }
                   steps{
-                  sh " kubectl apply -f /root/new.yml"
+                  sh " kubectl apply -f /root/deploy.yml"
                   sh " kubectl get pod "
                   sh " kubectl get deployment "
                   sh " kubectl get pod "
